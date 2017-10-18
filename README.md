@@ -50,7 +50,7 @@ describe("MyCustomComponent", () => {
 
     beforeEach(() => {
         // Creates the component with all the set up required to run properly in a fake Coveo Search Interface environment.
-        component = Mock.basicComponentSetup<MyCustomComponent>(CoveoForSitecoreContext);
+        component = Mock.basicComponentSetup<MyCustomComponent>(MyCustomComponent);
     });
 
     afterEach(() => {
