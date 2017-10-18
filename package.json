@@ -1,6 +1,6 @@
 {
   "name": "coveo-search-ui-tests",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Testing framework for the Coveo JavaScript Search Framework",
   "main": "./bin/js/CoveoJsSearchTests.js",
   "peerDependencies": {
@@ -9,7 +9,10 @@
   "scripts": {
     "precommit": "lint-staged",
     "build": "webpack",
-    "dts": "node declaration.js"
+    "dts": "node declaration.js",
+    "prepublish": "npm run build && npm run dts",
+    "deployPatch": "npm version patch && npm run deploy",
+    "deploy": "npm publish --registry http://npm.corp.coveo.com"
   },
   "lint-staged": {
     "*.{js,ts,json,.scss}": [
@@ -34,6 +37,7 @@
   "bugs": {
     "url": "https://github.com/francoislg/search-ui-tests/issues"
   },
+  "files": ["bin", "lib", "src"],
   "homepage": "https://github.com/francoislg/search-ui-tests#readme",
   "devDependencies": {
     "@types/jasmine": "^2.6.0",
@@ -43,6 +47,7 @@
     "dts-webpack-plugin": "0.0.9",
     "exports-loader": "^0.6.4",
     "lint-staged": "^4.2.3",
+    "npm-cli-login": "0.0.10",
     "ts-loader": "^3.0.2",
     "typescript": "^2.5.3",
     "webpack": "^3.8.1",
