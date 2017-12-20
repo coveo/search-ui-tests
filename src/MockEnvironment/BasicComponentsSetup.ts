@@ -26,7 +26,8 @@ import * as Simulate from "../Simulate";
 
 export function basicComponentSetup<T extends Component>(
   klass: IComponentConstructor<T>,
-  options: any = {}
+  options: any = {},
+  ...args: any[]
 ): IBasicComponentSetup<T> {
   const envBuilder = new MockEnvironmentBuilder();
   return {
@@ -34,14 +35,16 @@ export function basicComponentSetup<T extends Component>(
     cmp: <T>new klass(
       envBuilder.getBindings().element,
       options,
-      envBuilder.getBindings()
+      envBuilder.getBindings(),
+      ...args
     )
   };
 }
 
 export function basicComponentSetupWithModalBox<T extends Component>(
   klass: IComponentConstructorWithModalBox<T>,
-  options: any = {}
+  options: any = {},
+  ...args: any[]
 ): IBasicComponentSetupWithModalBox<T> {
   const envBuilder = new MockEnvironmentBuilder();
   const modalBox = Simulate.modalBoxModule();
@@ -52,14 +55,16 @@ export function basicComponentSetupWithModalBox<T extends Component>(
       envBuilder.getBindings().element,
       options,
       envBuilder.getBindings(),
-      modalBox
+      modalBox,
+      ...args
     )
   };
 }
 
 export function basicResultComponentSetup<T extends Component>(
   klass: IComponentConstructorWithResult<T>,
-  options: any = {}
+  options: any = {},
+  ...args: any[]
 ): IBasicComponentSetup<T> {
   const envBuilder = new MockEnvironmentBuilder().withResult();
   return {
@@ -68,14 +73,16 @@ export function basicResultComponentSetup<T extends Component>(
       envBuilder.getBindings().element,
       options,
       envBuilder.getBindings(),
-      envBuilder.result
+      envBuilder.result,
+      ...args
     )
   };
 }
 
 export function basicResultComponentSetupWithModalBox<T extends Component>(
   klass: IComponentConstructorWithResultAndModalBox<T>,
-  options: any = {}
+  options: any = {},
+  ...args: any[]
 ): IBasicComponentSetupWithModalBox<T> {
   const envBuilder = new MockEnvironmentBuilder();
   const modalBox = Simulate.modalBoxModule();
@@ -87,20 +94,22 @@ export function basicResultComponentSetupWithModalBox<T extends Component>(
       options,
       envBuilder.getBindings(),
       envBuilder.result,
-      modalBox
+      modalBox,
+      ...args
     )
   };
 }
 
 export function basicSearchInterfaceSetup<T extends SearchInterface>(
-  klass: ISearchInterfaceConstructor<T>
+  klass: ISearchInterfaceConstructor<T>,
+  ...args: any[]
 ): ISearchInterfaceSetup<T> {
   const div = $$("div").el;
   const envBuilder = new MockEnvironmentBuilder().withRoot(div);
-  const component = <T>new klass(div);
+  const component = <T>new klass(div, ...args);
   envBuilder.searchInterface = component;
   return {
     env: envBuilder.build(),
-    cmp: component
+    cmp: component,
   };
 }

@@ -64,7 +64,8 @@ export class AdvancedComponentSetupOptions {
 
 export function advancedComponentSetup<T extends Component>(
   klass: IComponentConstructor<T>,
-  options?: AdvancedComponentSetupOptions
+  options?: AdvancedComponentSetupOptions,
+  ...args: any[]
 ): IBasicComponentSetup<T> {
   const baseOptions = new AdvancedComponentSetupOptions();
   const optsMerged = baseOptions.merge(options);
@@ -76,14 +77,16 @@ export function advancedComponentSetup<T extends Component>(
     cmp: <T>new klass(
       envBuilder.getBindings().element,
       optsMerged.cmpOptions,
-      envBuilder.getBindings()
+      envBuilder.getBindings(),
+      ...args
     )
   };
 }
 
 export function advancedComponentSetupWithModalBox<T extends Component>(
   klass: IComponentConstructorWithModalBox<T>,
-  options?: AdvancedComponentSetupOptions
+  options?: AdvancedComponentSetupOptions,
+  ...args: any[]
 ): IBasicComponentSetupWithModalBox<T> {
   const baseOptions = new AdvancedComponentSetupOptions();
   const optsMerged = baseOptions.merge(options);
@@ -98,7 +101,8 @@ export function advancedComponentSetupWithModalBox<T extends Component>(
       envBuilder.getBindings().element,
       optsMerged.cmpOptions,
       envBuilder.getBindings(),
-      modalBox
+      modalBox,
+      ...args
     )
   };
 }
@@ -106,7 +110,8 @@ export function advancedComponentSetupWithModalBox<T extends Component>(
 export function advancedResultComponentSetup<T extends Component>(
   klass: IAdvancedComponentConstructor<T>,
   result: IQueryResult,
-  options?: AdvancedComponentSetupOptions
+  options?: AdvancedComponentSetupOptions,
+  ...args: any[]
 ): IBasicComponentSetup<T> {
   const baseOptions = new AdvancedComponentSetupOptions();
   const optsMerged = baseOptions.merge(options);
@@ -122,7 +127,8 @@ export function advancedResultComponentSetup<T extends Component>(
       optsMerged.cmpOptions,
       envBuilder.getBindings(),
       envBuilder.result,
-      envBuilder.os
+      envBuilder.os,
+      ...args
     )
   };
 }
