@@ -4,7 +4,7 @@
   "description": "Testing framework for the Coveo JavaScript Search Framework",
   "main": "./bin/js/CoveoJsSearchTests.js",
   "peerDependencies": {
-    "coveo-search-ui": "2.3477.x"
+    "coveo-search-ui": "^2.3477.1"
   },
   "scripts": {
     "precommit": "lint-staged",
