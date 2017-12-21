@@ -1,6 +1,6 @@
 {
   "name": "coveo-search-ui-tests",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Testing framework for the Coveo JavaScript Search Framework",
   "main": "./bin/js/CoveoJsSearchTests.js",
   "peerDependencies": {
