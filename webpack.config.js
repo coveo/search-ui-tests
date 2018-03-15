@@ -1,7 +1,6 @@
 const webpack = require("webpack");
 const minimize = process.argv.indexOf("--optimize-minimize") !== -1;
 const colors = require("colors");
-const failPlugin = require("webpack-fail-plugin");
 if (minimize) {
   console.log("Building minified version of the library".bgGreen.red);
 } else {
@@ -11,7 +10,7 @@ if (minimize) {
 const packageName = "CoveoJsSearchTests";
 
 // Fail plugin will allow the webpack ts-loader to fail correctly when the TS compilation fails.
-var plugins = [failPlugin];
+var plugins = [];
 
 if (minimize) {
   plugins.push(
@@ -22,6 +21,7 @@ if (minimize) {
 }
 
 module.exports = {
+  mode: "development",
   entry: "./src/Index.ts",
   output: {
     path: require("path").resolve("./bin/js"),
