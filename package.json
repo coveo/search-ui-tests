@@ -12,7 +12,7 @@
     "dts": "node declaration.js",
     "prepublish": "npm run build && npm run dts",
     "deployPatch": "npm version patch && npm run deploy",
-    "deploy": "npm publish --registry http://npm.corp.coveo.com"
+    "deploy": "npm publish"
   },
   "lint-staged": {
     "*.{js,ts,json,.scss}": [
@@ -22,7 +22,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/francoislg/search-ui-tests.git"
+    "url": "git+https://github.com/coveo/search-ui-tests.git"
   },
   "keywords": [
     "coveo-search",
@@ -35,19 +35,18 @@
   "author": "Coveo",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/francoislg/search-ui-tests/issues"
+    "url": "https://github.com/coveo/search-ui-tests/issues"
   },
   "files": [
     "bin",
     "lib",
     "src"
   ],
-  "homepage": "https://github.com/francoislg/search-ui-tests#readme",
+  "homepage": "https://github.com/coveo/search-ui-tests#readme",
   "devDependencies": {
     "@types/jasmine": "^2.8.6",
     "child-process-promise": "^2.2.1",
     "colors": "^1.2.1",
-    "coveo-search-ui": "^2.3477.1",
     "dts-webpack-plugin": "^0.0.9",
     "exports-loader": "^0.7.0",
     "lint-staged": "^7.0.0",
