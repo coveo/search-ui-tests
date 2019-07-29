@@ -125,6 +125,8 @@ export class MockEnvironmentBuilder {
     this.searchInterface.queryStateModel = this.queryStateModel;
     this.searchInterface.componentStateModel = this.componentStateModel;
     this.searchInterface.componentOptionsModel = this.componentOptionsModel;
+    this.searchInterface.getBindings = () => this.getBindings() as any;
+    this.searchInterface.getQueryContext = () => this.queryController.getLastQuery().context || {};
 
     if (!this.searchEndpoint) {
       this.searchEndpoint = mockSearchEndpoint();
