@@ -35,7 +35,8 @@ export interface IAdvancedComponentConstructor<T> {
     options: any,
     bindings: IComponentBindings,
     result: IQueryResult,
-    os: OS_NAME
+    os: OS_NAME,
+    ...args: any[]
   ): T;
 }
 

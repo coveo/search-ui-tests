@@ -9,7 +9,7 @@ import {
 import { IMockEnvironment } from "./MockEnvironmentBuilder";
 
 export interface IComponentConstructor<T> {
-  new (element: HTMLElement, options: any, bindings: IComponentBindings): T;
+  new (element: HTMLElement, options: any, bindings: IComponentBindings, ...args: any[]): T;
 }
 
 export interface IBasicComponentSetup<T extends Component> {
@@ -22,7 +22,8 @@ export interface IComponentConstructorWithModalBox<T> {
     element: HTMLElement,
     options: any,
     bindings: IComponentBindings,
-    modalBox: ModalBox.ModalBox
+    modalBox: ModalBox.ModalBox,
+    ...args: any[]
   ): T;
 }
 
@@ -36,7 +37,8 @@ export interface IComponentConstructorWithResult<T> {
     element: HTMLElement,
     options: any,
     bindings: IComponentBindings,
-    result: IQueryResult
+    result: IQueryResult,
+    ...args: any[]
   ): T;
 }
 
@@ -46,7 +48,8 @@ export interface IComponentConstructorWithResultAndModalBox<T> {
     options: any,
     bindings: IComponentBindings,
     result: IQueryResult,
-    modalBox: ModalBox.ModalBox
+    modalBox: ModalBox.ModalBox,
+    ...args: any[]
   ): T;
 }
 
@@ -55,7 +58,8 @@ export interface ISearchInterfaceConstructor<T extends SearchInterface> {
     element: HTMLElement,
     options?: ISearchInterfaceOptions,
     analyticsOptions?: any,
-    _window?: Window
+    _window?: Window,
+    ...args: any[]
   ): T;
 }
 

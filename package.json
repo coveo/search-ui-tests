@@ -4,7 +4,7 @@
   "description": "Testing framework for the Coveo JavaScript Search Framework",
   "main": "./bin/js/CoveoJsSearchTests.js",
   "peerDependencies": {
-    "coveo-search-ui": "^2.3477.1"
+    "coveo-search-ui": "^2.6459.9"
   },
   "scripts": {
     "precommit": "lint-staged",
@@ -47,12 +47,13 @@
     "@types/jasmine": "^2.8.6",
     "child-process-promise": "^2.2.1",
     "colors": "^1.2.1",
+    "coveo-search-ui": "^2.6459.9",
     "dts-webpack-plugin": "^0.0.9",
     "exports-loader": "^0.7.0",
     "lint-staged": "^7.0.0",
     "npm-cli-login": "^0.0.10",
     "ts-loader": "^4.0.1",
-    "typescript": "2.5.3",
+    "typescript": "^3.5.3",
     "webpack": "^4.1.1",
     "webpack-cli": "^2.0.11"
   },

@@ -26,7 +26,8 @@ export function createFakeResults(
     termsToHighlight: undefined,
     phrasesToHighlight: undefined,
     triggers: [],
-    searchAPIDuration: 288
+    searchAPIDuration: 288,
+    categoryFacets: []
   };
 }
 
@@ -60,7 +61,8 @@ export function createFakeResultsWithChildResults(
     termsToHighlight: undefined,
     phrasesToHighlight: undefined,
     triggers: [],
-    searchAPIDuration: 288
+    searchAPIDuration: 288,
+    categoryFacets: []
   };
 }
 

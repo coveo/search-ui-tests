@@ -6,7 +6,8 @@ import {
   QueryBuilder,
   IAnalyticsClient,
   NoopAnalyticsClient,
-  AnalyticsEndpoint
+  AnalyticsEndpoint,
+  ValidResponsiveMode
 } from "coveo-search-ui";
 
 export type ConstructorFunc<T> = any;
@@ -20,6 +21,8 @@ export interface IResponsiveComponentsMock {
   isSmallScreenWidth(): boolean;
   isMediumScreenWidth(): boolean;
   isLargeScreenWidth(): boolean;
+  setResponsiveMode(responsiveMode: ValidResponsiveMode): void;
+  getResponsiveMode(): ValidResponsiveMode;
 }
 
 export function mock<T>(
@@ -87,7 +90,9 @@ export function mockResponsiveComponents(): IResponsiveComponentsMock {
     setSmallScreenWidth: () => 0,
     isSmallScreenWidth: () => false,
     isMediumScreenWidth: () => false,
-    isLargeScreenWidth: () => true
+    isLargeScreenWidth: () => true,
+    getResponsiveMode: () => "auto",
+    setResponsiveMode: () => null
   };
 }
 
